@@ -1,10 +1,12 @@
+import os
 from db import Database
-from dataclasses import dataclass, asdict
 from operator import itemgetter
+from dataclasses import dataclass, asdict
 
 # -An instance of the Database(postgres) class
+port = int(os.environ.get("PORT", 5432))
 db = Database(
-    name="cafes", host="localhost", password="264813795", user="postgres", port=5432
+    name=os.environ['DATABASE'], host=os.environ['HOSTNAME'], password=os.environ['PASSWORD'], user=os.environ['USERNAME'], port=port
 )
 cursor = db.get_connection()
 
