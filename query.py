@@ -4,7 +4,7 @@ from operator import itemgetter
 from dataclasses import dataclass, asdict
 
 # -An instance of the Database(postgres) class
-port = int(os.environ.get("PORT", 5432))
+port = int(os.environ.get("PG_PORT", 5432))
 db = Database(
     name=os.environ['DATABASE'], host=os.environ['HOSTNAME'], password=os.environ['PASSWORD'], user=os.environ['USERNAME'], port=port
 )
